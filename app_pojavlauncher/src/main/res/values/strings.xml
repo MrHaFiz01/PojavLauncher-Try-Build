@@ -501,4 +501,12 @@
     </string>
     <string name="not_modpack_file">Not a modpack file!</string>
 
+    <string name="preference_background_title">Custom background</string>
+    <string name="preference_background_description">Set a custom image or video as launcher background</string>
+    <string name="preference_background_choose">Choose background</string>
+    <string name="preference_background_choose_description">Select an image or video from your device</string>
+    <string name="preference_background_clear">Clear background</string>
+    <string name="preference_background_clear_description">Remove the custom background</string>
+    <string name="preference_category_appearance">Appearance</string>
+
 </resources>

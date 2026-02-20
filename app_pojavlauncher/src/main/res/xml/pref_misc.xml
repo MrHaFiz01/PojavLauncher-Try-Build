@@ -4,6 +4,17 @@
 
     <net.kdt.pojavlaunch.prefs.BackButtonPreference/>
 
+    <PreferenceCategory android:title="@string/preference_category_appearance">
+        <Preference
+            android:key="backgroundChoose"
+            android:title="@string/preference_background_choose"
+            android:summary="@string/preference_background_choose_description" />
+        <Preference
+            android:key="backgroundClear"
+            android:title="@string/preference_background_clear"
+            android:summary="@string/preference_background_clear_description" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/preference_category_miscellaneous">
         <SwitchPreference
             android:defaultValue="true"

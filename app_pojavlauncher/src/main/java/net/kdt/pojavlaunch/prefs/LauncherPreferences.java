@@ -25,6 +25,8 @@ import java.util.LinkedHashMap;
 public class LauncherPreferences {
     public static final String PREF_KEY_CURRENT_PROFILE = "currentProfile";
     public static final String PREF_KEY_SKIP_NOTIFICATION_CHECK = "skipNotificationPermissionCheck";
+    public static final String PREF_KEY_BACKGROUND_URI = "backgroundUri";
+    public static final String PREF_KEY_BACKGROUND_IS_VIDEO = "backgroundIsVideo";
 
     public static SharedPreferences DEFAULT_PREF;
 

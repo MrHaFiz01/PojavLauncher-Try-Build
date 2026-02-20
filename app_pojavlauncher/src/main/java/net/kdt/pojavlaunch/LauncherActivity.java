@@ -10,9 +10,12 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -94,6 +97,7 @@ public class LauncherActivity extends BaseActivity {
     private ProgressServiceKeeper mProgressServiceKeeper;
     private ModloaderInstallTracker mInstallTracker;
     private NotificationManager mNotificationManager;
+    private BackgroundThemeController mBackgroundThemeController;
 
     /* Allows to switch from one button "type" to another */
     private final FragmentManager.FragmentLifecycleCallbacks mFragmentCallbackListener = new FragmentManager.FragmentLifecycleCallbacks() {
@@ -246,6 +250,11 @@ public class LauncherActivity extends BaseActivity {
         );
         getWindow().setBackgroundDrawable(null);
         bindViews();
+        mBackgroundThemeController = new BackgroundThemeController(
+                this,
+                findViewById(R.id.bg_image),
+                findViewById(R.id.bg_video));
+        mBackgroundThemeController.applyFromPreferences();
         checkNotificationPermission();
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         ProgressKeeper.addTaskCountListener(mDoubleLaunchPreventionListener);
@@ -269,11 +278,19 @@ public class LauncherActivity extends BaseActivity {
         mProgressLayout.observe(ProgressLayout.DOWNLOAD_VERSION_LIST);
     }
 
+    private final SharedPreferences.OnSharedPreferenceChangeListener mBackgroundPrefListener = (prefs, key) -> {
+        if (LauncherPreferences.PREF_KEY_BACKGROUND_URI.equals(key)) {
+            mBackgroundThemeController.applyFromPreferences();
+        }
+    };
+
     @Override
     protected void onResume() {
         super.onResume();
         ContextExecutor.setActivity(this);
         mInstallTracker.attach();
+        mBackgroundThemeController.resumeVideo();
+        LauncherPreferences.DEFAULT_PREF.registerOnSharedPreferenceChangeListener(mBackgroundPrefListener);
     }
 
     @Override
@@ -281,6 +298,8 @@ public class LauncherActivity extends BaseActivity {
         super.onPause();
         ContextExecutor.clearActivity();
         mInstallTracker.detach();
+        mBackgroundThemeController.pauseVideo();
+        LauncherPreferences.DEFAULT_PREF.unregisterOnSharedPreferenceChangeListener(mBackgroundPrefListener);
     }
 
     @Override
