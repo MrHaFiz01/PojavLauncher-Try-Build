@@ -68,6 +68,10 @@ public class LauncherPreferences {
     public static boolean PREF_SKIP_NOTIFICATION_PERMISSION_CHECK = false;
     public static boolean PREF_VSYNC_IN_ZINK = true;
 
+    public static String PREF_BACKGROUND_TYPE = "default";
+    public static String PREF_BACKGROUND_COLOR = "#181818";
+    public static String PREF_BACKGROUND_IMAGE_PATH = "";
+    public static String PREF_BACKGROUND_VIDEO_PATH = "";
 
     public static void loadPreferences(Context ctx) {
         //Required for CTRLDEF_FILE and MultiRT
@@ -109,6 +113,10 @@ public class LauncherPreferences {
         PREF_VERIFY_MANIFEST = DEFAULT_PREF.getBoolean("verifyManifest", true);
         PREF_SKIP_NOTIFICATION_PERMISSION_CHECK = DEFAULT_PREF.getBoolean(PREF_KEY_SKIP_NOTIFICATION_CHECK, false);
         PREF_VSYNC_IN_ZINK = DEFAULT_PREF.getBoolean("vsync_in_zink", true);
+        PREF_BACKGROUND_TYPE = DEFAULT_PREF.getString("backgroundType", "default");
+        PREF_BACKGROUND_COLOR = DEFAULT_PREF.getString("backgroundColor", "#181818");
+        PREF_BACKGROUND_IMAGE_PATH = DEFAULT_PREF.getString("backgroundImagePath", "");
+        PREF_BACKGROUND_VIDEO_PATH = DEFAULT_PREF.getString("backgroundVideoPath", "");
 
         String argLwjglLibname = "-Dorg.lwjgl.opengl.libname=";
         for (String arg : JREUtils.parseJavaArguments(PREF_CUSTOM_JAVA_ARGS)) {

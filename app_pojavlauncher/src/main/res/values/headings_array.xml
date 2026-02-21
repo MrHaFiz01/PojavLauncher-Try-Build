@@ -47,5 +47,17 @@
         <item>default</item>
         <item>bmclapi</item>
     </string-array>
+    <string-array name="background_type_names">
+        <item>@string/preference_background_type_default</item>
+        <item>@string/preference_background_type_color</item>
+        <item>@string/preference_background_type_image</item>
+        <item>@string/preference_background_type_video</item>
+    </string-array>
+    <string-array name="background_type_values">
+        <item>default</item>
+        <item>color</item>
+        <item>image</item>
+        <item>video</item>
+    </string-array>
 
 </resources>

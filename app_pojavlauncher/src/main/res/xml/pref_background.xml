@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app2="http://schemas.android.com/apk/res-auto">
+
+    <net.kdt.pojavlaunch.prefs.BackButtonPreference/>
+
+    <PreferenceCategory android:title="@string/preference_category_background">
+        <androidx.preference.ListPreference
+            android:title="@string/preference_background_type_title"
+            android:summary="@string/preference_background_type_description"
+            android:key="backgroundType"
+            android:defaultValue="default"
+            android:entries="@array/background_type_names"
+            android:entryValues="@array/background_type_values"
+            app2:useSimpleSummaryProvider="true"/>
+
+        <androidx.preference.EditTextPreference
+            android:key="backgroundColor"
+            android:title="@string/preference_background_color_title"
+            android:summary="@string/preference_background_color_description"
+            android:defaultValue="#181818"
+            app2:useSimpleSummaryProvider="true"/>
+
+        <Preference
+            android:key="backgroundImagePath"
+            android:title="@string/preference_background_image_title"
+            android:summary="@string/preference_background_image_description"/>
+
+        <Preference
+            android:key="backgroundVideoPath"
+            android:title="@string/preference_background_video_title"
+            android:summary="@string/preference_background_video_description"/>
+    </PreferenceCategory>
+</PreferenceScreen>

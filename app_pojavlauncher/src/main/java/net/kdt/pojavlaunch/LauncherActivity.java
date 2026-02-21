@@ -9,7 +9,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -25,6 +27,7 @@ import com.kdt.mcgui.ProgressLayout;
 import com.kdt.mcgui.mcAccountSpinner;
 
 import net.kdt.pojavlaunch.contracts.OpenDocumentWithExtension;
+import net.kdt.pojavlaunch.customization.BackgroundManager;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
 import net.kdt.pojavlaunch.extra.ExtraListener;
@@ -64,6 +67,9 @@ public class LauncherActivity extends BaseActivity {
     private ImageButton mSettingsButton;
     private ProgressLayout mProgressLayout;
     private ProgressServiceKeeper mProgressServiceKeeper;
+    private View mRootView;
+    private ImageView mBackgroundImage;
+    private VideoView mBackgroundVideo;
     private ModloaderInstallTracker mInstallTracker;
     private NotificationManager mNotificationManager;
 
@@ -234,6 +240,7 @@ public class LauncherActivity extends BaseActivity {
         super.onResume();
         ContextExecutor.setActivity(this);
         mInstallTracker.attach();
+        BackgroundManager.applyBackground(mRootView, mBackgroundImage, mBackgroundVideo);
     }
 
     @Override
@@ -352,6 +359,9 @@ public class LauncherActivity extends BaseActivity {
 
     /** Stuff all the view boilerplate here */
     private void bindViews(){
+        mRootView = findViewById(R.id.launcher_root);
+        mBackgroundImage = findViewById(R.id.background_image);
+        mBackgroundVideo = findViewById(R.id.background_video);
         mFragmentView = findViewById(R.id.container_fragment);
         mSettingsButton = findViewById(R.id.setting_button);
         mAccountSpinner = findViewById(R.id.account_spinner);

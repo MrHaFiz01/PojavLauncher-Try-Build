@@ -52,6 +52,13 @@
             android:summary="@string/preference_experimental_description"
             android:fragment="net.kdt.pojavlaunch.prefs.screens.LauncherPreferenceExperimentalFragment"
             />
+
+        <Preference
+            android:key="background_screen_setting"
+            android:title="@string/preference_background_title"
+            android:summary="@string/preference_background_description"
+            android:fragment="net.kdt.pojavlaunch.prefs.screens.LauncherPreferenceBackgroundFragment"
+            />
     </PreferenceCategory>
 
     <SwitchPreference

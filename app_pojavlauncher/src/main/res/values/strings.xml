@@ -431,4 +431,19 @@
     <string name="bta_installer_nightly_versions">Nightly BTA versions</string>
     <string name="newdl_extracting_native_libraries">Extracting native libraries (%d/%d)</string>
     <string name="toast_not_available_demo">This is not available in demo mode</string>
+    <string name="preference_background_title">Background</string>
+    <string name="preference_background_description">Custom background color, image or video</string>
+    <string name="preference_category_background">Background settings</string>
+    <string name="preference_background_type_title">Background type</string>
+    <string name="preference_background_type_description">Choose between color, image, or video</string>
+    <string name="preference_background_color_title">Background color</string>
+    <string name="preference_background_color_description">Hex color code (e.g. #181818)</string>
+    <string name="preference_background_image_title">Background image</string>
+    <string name="preference_background_image_description">Select an image for the background</string>
+    <string name="preference_background_video_title">Background video</string>
+    <string name="preference_background_video_description">Select a video for the background</string>
+    <string name="preference_background_type_default">Default</string>
+    <string name="preference_background_type_color">Color</string>
+    <string name="preference_background_type_image">Image</string>
+    <string name="preference_background_type_video">Video</string>
 </resources>
